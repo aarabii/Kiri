@@ -1,0 +1,124 @@
+const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js');
+
+module.exports = {
+  name: 'announce',
+  aliases: ['announcement'],
+  run: async(client, message, args) => {
+
+    const channel = message.mentions.channels.first();
+
+    if(!channel){
+      let channelEmbed = new MessageEmbed()
+        .setTitle('**Announcement**')
+        .setColor('#ff0000')
+        .setDescription('```yaml\nPlease Provide a valid channel!```')
+        .setTimestamp()
+        .setFooter('| This message will disappear in 10 seconds |')
+
+      return message.reply({ embeds: [channelEmbed] }).then(m => {
+        setTimeout(() => {
+          m.delete()
+        }, 10000);
+      });
+    };
+
+    if(!message.member.permissions.has("MANAGE_MESSAGES")){
+      let embed = new MessageEmbed()
+        .setTitle('**Announcement')
+        .setColor('#ff0000')
+        .setDescription('```yaml\nYou dont have permission to make any announcement```')
+        .addFields(
+          {
+            name: 'Missing Permission :',
+            value: '```Manage Message```'
+          }
+        )
+    }
+
+    const embedToBuild = new MessageEmbed()
+      .setAuthor(message.author.tag, message.author.displayAvatarURL());
+
+  // butttons
+
+    let title = new MessageButton()
+      .setLabel('Title')
+      .setStyle('PRIMARY')
+      .setCustomId('ann_title')
+
+    let description = new MessageButton()
+      .setLabel('Description')
+      .setStyle('PRIMARY')
+      .setCustomId('ann_description')
+
+    let footer = new MessageButton()
+      .setLabel('Footer')
+      .setStyle('PRIMARY')
+      .setCustomId('ann_footer')
+
+    let footerImage = new MessageButton()
+      .setLabel('footer-Image')
+      .setStyle('PRIMARY')
+      .setCustomId('ann_footerimg')
+
+    let image = new MessageButton()
+      .setLabel('Image')
+      .setStyle('PRIMARY')
+      .setCustomId('ann_image')
+
+    let thumbnail = new MessageButton()
+      .setLabel('Thumbnail')
+      .setStyle('PRIMARY')
+      .setCustomId('ann_thumbnail')
+
+    let timestamp = new MessageButton()
+      .setLabel('Time-Stamp')
+      .setStyle('PRIMARY')
+      .setCustomId('ann_timestamp')  
+
+    let color = new MessageButton()
+      .setLabel('Colour')
+      .setStyle('PRIMARY')
+      .setCustomId('ann_color')
+
+    let send = new MessageButton()
+      .setLabel('Send')
+      .setStyle('SUCCESS')
+      .setCustomId('ann_send')
+
+    let cancel = new MessageButton()
+      .setLabel('Cancel')
+      .setStyle('DANGER')
+      .setCustomId('ann_cancel')
+
+  //rows
+
+    let row1 = new MessageActionRow()
+      .addComponents(title)
+      .addComponents(description)
+      .addComponents(footer)
+      .addComponents(color)
+
+    let row2 = new MessageActionRow()
+      .addComponents(thumbnail)
+      .addComponents(image)
+      .addComponents(footerImage)
+      .addComponents(timestamp)
+
+    let row3 = new MessageActionRow()
+      .addComponents(send)
+      .addComponents(cancel)
+  
+  //f
+    let msg = await message.reply({
+      embeds: [embedToBuild],
+      components: [row1, row2, row3]
+    })
+
+    const collector = interaction.channel.createMessageComponentCollector(); 
+
+    collector.on('collect', async i => {
+
+    })
+     
+  }
+}
