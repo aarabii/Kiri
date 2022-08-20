@@ -68,14 +68,14 @@ module.exports = {
 
     const help = new MessageEmbed()
       .setTitle('**Touka Kirishima**')
-      .setURL('https://discord.com/api/oauth2/authorize?client_id=890100719930179655&permissions=8&scope=bot%20applications.commands')
+      .setURL('https://discord.com/api/oauth2/authorize?client_id=900390993860366356&permissions=8&scope=bot%20applications.commands')
       .setColor('#ffff00')
       .setThumbnail('https://cdn.discordapp.com/attachments/890100498508697620/890100558315266089/93a25b5ab6e55d00de1fc024cc4163fd.jpg')
       .setDescription('```Please use the Select Menu below to explore the corresponding category```\n`Note: The nsfw category is only available in nsfw channels`')
       .addFields(
         {
           name: 'Hi! Thanks for inviting me to your lovely server! ❤️',
-          value: '• To contact with DEVs : `.support` or `/support`\n• By support command you can request for some features too\n• To add KirI in your sever you can click on the Title of this embed or [click here](https://discord.com/api/oauth2/authorize?client_id=890100719930179655&permissions=8&scope=bot%20applications.commands)\n• Many more commands are comming <3'
+          value: '• To contact with DEVs : `.support` or `/support`\n• By support command you can request for some features too\n• To add KirI in your sever you can click on the Title of this embed or [click here](https://discord.com/api/oauth2/authorize?client_id=900390993860366356&permissions=8&scope=bot%20applications.commands)\n• Many more commands are comming <3'
         },
         {
           name: 'Ping',

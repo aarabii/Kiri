@@ -79,11 +79,17 @@ module.exports = async (client) => {
     }, 5000)
 
     // mongoose
-    require('dotenv').config();
+
     const { mongooseConnectionString } = process.env['mongooseConnectionString']
     if (!mongooseConnectionString) return;
 
-    mongoose.connect(mongooseConnectionString).then(() => console.log('Connected to mongodb'));
+    mongoose.connect(mongooseConnectionString, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      userFindAndModify: false
+    }).then(() => {
+      console.log('Connected to DB')
+    })
   
 
 };

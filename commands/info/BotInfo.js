@@ -17,7 +17,7 @@ module.exports = {
       new MessageButton()
         .setLabel('Invite KirI')
         .setStyle('LINK')
-        .setURL('https://discord.com/api/oauth2/authorize?client_id=890100719930179655&permissions=8&scope=bot%20applications.commands')
+        .setURL('https://discord.com/api/oauth2/authorize?client_id=900390993860366356&permissions=8&scope=bot%20applications.commands')
     )    
 
     const embed = new MessageEmbed()
